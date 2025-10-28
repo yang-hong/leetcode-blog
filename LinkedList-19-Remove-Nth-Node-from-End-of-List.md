@@ -28,8 +28,6 @@ class Solution:
 
 ```
 
-
-
 ## 📈 Complexity
 Time	Traverse the list once using two pointers	O(n)
 Space	Only a few extra pointers	O(1)
