@@ -6,6 +6,7 @@ Have two stack, one for in stack, other one for out stack. When push a value, pu
 
 ## 💡 Things I have challenges with
 1. Two stack, in and out stack
+2. Only need to move to out stack when out stack is empty. When it is not empty, meaning there is still elements in out stack with correct order to pop or peek
 
 ## 🧠 Code
 ```
