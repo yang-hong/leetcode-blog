@@ -5,8 +5,12 @@ https://leetcode.com/problems/permutations-ii/description/
 For each level of the tree (horizontal), we can always start from the begining, which means just call the recursion without passing any starting_index. We need to track duplicates under each path, because if we won't track, the recursion will always start at index 0, which means it will have so many duplicates like[1,1,1]. Need to take care of the duplication logic
 
 ## 💡 Things I have challenges with
-1. duplication logic: if (i > 0 and nums[i] == nums[i - 1] and not used[i - 1]) or used[i]:
-                continue
+1. We need to track duplicates under each path, because if we won't track, the recursion will always start at index 0, which means it will have so many duplicates like[1,1,1]
+2. Combination does not have order. Permutation order matters
+| 类型 | 所有结果                                     | 总数 |
+| -- | ---------------------------------------- | -- |
+| 组合 | [1,2], [1,3], [2,3]                      | 3  |
+| 排列 | [1,2], [1,3], [2,1], [2,3], [3,1], [3,2] | 6  |
 
 ## 🧠 Code
 ```

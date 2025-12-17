@@ -28,5 +28,5 @@ class Solution:
 ```
 
 ## 📈 Complexity
-Time: O(n)
-Space: O(n * n)
+Time: O(n * m)
+Space: O(n * m)
