@@ -47,6 +47,58 @@ class Solution:
 
 ```
 
+```
+二、Kruskal 算法 3 步总结
+
+将所有边按权重从小到大排序
+
+依次取边，用并查集判断两端是否已经连通
+
+不连通就合并并计入成本，直到选够 n - 1 条边
+
+class Solution:
+    def minimumCost(self, n: int, connections: List[List[int]]) -> int:
+        # 1. 并查集初始化（0-based）
+        parent = [i for i in range(n)]
+        rank = [1] * n
+
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])   # 路径压缩
+            return parent[x]
+
+        def union(a, b):
+            pa, pb = find(a), find(b)
+            if pa == pb:
+                return False                 # 会成环
+            if rank[pa] < rank[pb]:
+                parent[pa] = pb
+                rank[pb] += rank[pa]
+            else:
+                parent[pb] = pa
+                rank[pa] += rank[pb]
+            return True
+
+        # 2. 边排序（1-based → 0-based）
+        connections.sort(key=lambda x: x[2])
+
+        total = 0
+        edges_used = 0
+
+        # 3. 逐边尝试合并
+        for u, v, cost in connections:
+            u -= 1
+            v -= 1
+            if union(u, v):
+                total += cost
+                edges_used += 1
+                if edges_used == n - 1:
+                    return total
+
+        return -1
+
+```
+
 ## 📈 Complexity
 Time Complexity:
 O(E log V)
